@@ -26,3 +26,80 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+
+/*------------------------------------------------------------------
+	 HEADER
+------------------------------------------------------------------*/
+.header-area {
+  min-height: 110px;
+  background-color: #016A82;
+  display: flex;
+  align-items: center;
+  border-bottom: 10px solid #0784a0;
+}
+
+.header-content {
+  width: 100%;
+  min-height: 81px;
+  /*background-color: #b1b1b1;*/
+  background-color: white;
+}
+
+.header-area .logo-container {
+  height: 100%;
+  margin-left: 45px;
+}
+
+.header-area .logo-container img {
+  height: 54px;
+  width: 299px;
+}
+.header-area .banner-container {
+  height: 80px;
+  margin: 0 10px;
+  color: grey;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+
+/*------------------------------------------------------------------
+	 CONTENT
+--------------------------------------------------------------*/
+
+.content-area {
+  min-height: 600px;
+  height: 100%;
+  margin: 5px;
+}
+
+
+/*------------------------------------------------------------------
+	 POSITION
+------------------------------------------------------------------*/
+
+.floatRight {
+  float: right;
+  margin-right: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.floatLeft {
+  float:left;
+}
+
+.labelStyle {
+ padding-left: 8px;
+ padding-right: 8px;
+ padding-top: 8px;
+ font-size: 25px
+};
+
+.floatLeft .paddingTop{
+  float:left;
+  padding-top: 18px;
+}
