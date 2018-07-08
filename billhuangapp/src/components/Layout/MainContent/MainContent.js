@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import SortBy from "../../Employee/SortBy";
 import Card from "../../Employee/Card";
-import { Grid, Col, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import { FormControl } from "react-bootstrap";
 import "./MainContent.css";
 
