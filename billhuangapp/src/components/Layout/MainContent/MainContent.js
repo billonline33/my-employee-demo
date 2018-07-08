@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import SortBy from "../../Employee/SortBy";
 import { FormControl } from "react-bootstrap";
+import "./MainContent.css";
 
 class MainContent extends Component {
   constructor(props) {

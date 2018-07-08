@@ -2,15 +2,27 @@
   "name": "billhuangapp",
   "version": "0.1.0",
   "private": true,
+  "proxy": {
+    "/api": {
+      "target": "http://localhost:3001",
+      "pathRewrite": {
+        "^/api": "/"
+      }
+    }
+  },
   "dependencies": {
+    "axios": "^0.18.0",
     "bootstrap": "3",
+    "concurrently": "^3.6.0",
+    "json-server": "^0.14.0",
+    "moment": "^2.22.2",
     "react": "^16.4.1",
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.4.1",
     "react-scripts": "1.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"react-scripts start\" \"json-server --watch sample-data.json --port 3001\"",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

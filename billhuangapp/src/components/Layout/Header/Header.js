@@ -1,13 +1,17 @@
 import React from "react";
 import { Grid, Col, Row } from "react-bootstrap";
 import logo from "../../../images/images.png";
+import moment from "moment";
+import "./Header.css";
 
 var styleCenter = {
   textAlign: "center",
   width: "100%"
 };
 
-const Header = () => {
+const Header = ({ companyInfo }) => {
+  const companyEst = moment(companyInfo.companyEst).format("YYYY");
+  console.log("company info:", companyInfo);
   return (
     <div className={"header-area"}>
       <div className={"header-content"}>
@@ -17,12 +21,12 @@ const Header = () => {
               <img src={logo} />
             </div>
             <div className={"tag-line"}>
-              <h3>Best ERP software at affordable price</h3>
+              <h3>{companyInfo.companyMotto}</h3>
             </div>
           </Col>
           <Col xs={3} md={3}>
             <div className={"banner-container"}>
-              <h2>Since 1996</h2>
+              <h2>Since {companyEst}</h2>
             </div>
           </Col>
         </Row>
