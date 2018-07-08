@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SortBy from "../Employee/SortBy";
+import SortBy from "../../Employee/SortBy";
 import { FormControl } from "react-bootstrap";
 
 class MainContent extends Component {
