@@ -10,43 +10,41 @@ class MainContent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: "",
+      searchValue: "",
       companyInfo: {},
       employeeInfo: [],
       sortByField: "firstName"
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.handleSearchChange = this.handleSearchChange.bind(this);
     this.handleSortByChange = this.handleSortByChange.bind(this);
   }
 
-  getCompanyInfo() {
-    axios.get("/api/companyInfo").then(response => {
-      console.log("comp Info: ", response.data);
-      this.setState({ companyInfo: response.data });
-    });
-  }
-
   getEmployeeInfo() {
-    axios.get("/api/employees").then(response => {
+    let apiUrl = `$/api/employees?_sort=${this.state.sortByField}&_order=asc&${
+      this.state.sortByField
+    }_like=${this.state.searchValue}`;
+    axios.get(apiUrl).then(response => {
       console.log("employees Info: ", response.data);
       this.setState({ employeeInfo: response.data });
     });
   }
 
-  handleChange(e) {
-    this.setState({ value: e.target.value });
-    console.log("search text=", this.state.value);
+  handleSearchChange(e) {
+    this.setState({ searchValue: e.target.value }, function() {
+      this.getEmployeeInfo();
+    });
+    console.log("search text=", this.state.searchValue);
   }
 
   handleSortByChange = sortByField => {
     this.setState({ sortByField }, function() {
       console.log("this.state.sortByFiled=", this.state.sortByField);
+      this.getEmployeeInfo();
     });
   };
 
   componentDidMount() {
     console.log("componentDidMount Run");
-    this.getCompanyInfo();
     this.getEmployeeInfo();
   }
 
@@ -76,13 +74,13 @@ class MainContent extends Component {
                   eventKey="firstName"
                   onSelect={this.handleSortByChange}
                 >
-                  First Name
+                  firstName
                 </MenuItem>
                 <MenuItem
                   eventKey="lastName"
                   onSelect={this.handleSortByChange}
                 >
-                  Last Name
+                  lastName
                 </MenuItem>
                 <MenuItem
                   eventKey="jobTitle"
@@ -106,9 +104,9 @@ class MainContent extends Component {
           <div className={"floatLeft"} style={paddingTop}>
             <FormControl
               type="text"
-              value={this.state.value}
+              value={this.state.searchValue}
               placeholder="Enter text"
-              onChange={this.handleChange}
+              onChange={this.handleSearchChange}
             />
           </div>
         </div>
