@@ -29,10 +29,6 @@ class Card extends Component {
       "vertical-align": "bottom"
     };
 
-    const noBorder = {
-      "border-bottom": "0px"
-    };
-
     const dateJoined = moment(employeeInfo.dateJoined).format("DD/MM/YYYY");
 
     return (
