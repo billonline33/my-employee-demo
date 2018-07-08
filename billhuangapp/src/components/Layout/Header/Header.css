@@ -1,0 +1,18 @@
+.header-area .logo-container {
+  height: 100%;
+  margin-left: 45px;
+}
+
+.header-area .logo-container img {
+  height: 54px;
+  width: 299px;
+}
+.header-area .banner-container {
+  height: 80px;
+  margin: 0 10px;
+  color: grey;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 20px;
+}

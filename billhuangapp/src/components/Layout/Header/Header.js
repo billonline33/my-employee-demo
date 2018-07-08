@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, Col, Row } from "react-bootstrap";
-import logo from "../../images/images.png";
+import logo from "../../../images/images.png";
 
 var styleCenter = {
   textAlign: "center",
