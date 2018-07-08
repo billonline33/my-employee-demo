@@ -23,17 +23,20 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
-
 
 /*------------------------------------------------------------------
 	 HEADER
 ------------------------------------------------------------------*/
 .header-area {
   min-height: 110px;
-  background-color: #016A82;
+  background-color: #016a82;
   display: flex;
   align-items: center;
   border-bottom: 10px solid #0784a0;
@@ -65,7 +68,6 @@
   padding-right: 20px;
 }
 
-
 /*------------------------------------------------------------------
 	 CONTENT
 --------------------------------------------------------------*/
@@ -75,7 +77,6 @@
   height: 100%;
   margin: 5px;
 }
-
 
 /*------------------------------------------------------------------
 	 POSITION
@@ -89,17 +90,17 @@
 }
 
 .floatLeft {
-  float:left;
+  float: left;
 }
 
 .labelStyle {
- padding-left: 8px;
- padding-right: 8px;
- padding-top: 8px;
- font-size: 25px
-};
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 8px;
+  font-size: 25px;
+}
 
-.floatLeft .paddingTop{
-  float:left;
+.floatLeft .paddingTop {
+  float: left;
   padding-top: 18px;
 }
