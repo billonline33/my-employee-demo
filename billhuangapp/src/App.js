@@ -8,8 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      companyInfo: {},
-      employeeInfo: []
+      companyInfo: {}
     };
   }
 
@@ -20,16 +19,8 @@ class App extends Component {
     });
   }
 
-  getEmployeeInfo() {
-    axios.get("/api/employees").then(response => {
-      console.log("employees Info: ", response.data);
-      this.setState({ employeeInfo: response.data });
-    });
-  }
-
   componentDidMount() {
     this.getCompanyInfo();
-    this.getEmployeeInfo();
   }
 
   render() {
