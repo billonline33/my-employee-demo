@@ -1,9 +1,18 @@
 import React from "react";
+import "./Card.css";
 
-const Card = () => {
+const Card = ({ employeeInfo }) => {
   return (
-    <div className="footer">
-      Footer - BILL HUANG SOFTWARE GROUP © 1986 - 2017
+    <div className={"employee-card-container"}>
+      <div className={"photo-container"}>
+        <img src={employeeInfo.avatar} alt={"avatar"} />
+      </div>
+      <div className={"card-info-container"}>
+        <span>
+          {employeeInfo.firstName} {employeeInfo.lastName}
+        </span>
+        <p>{employeeInfo.bio}</p>
+      </div>
     </div>
   );
 };

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import SortBy from "../../Employee/SortBy";
+import Card from "../../Employee/Card";
+import { Grid, Col, Row } from "react-bootstrap";
 import { FormControl } from "react-bootstrap";
 import "./MainContent.css";
 
@@ -22,6 +24,8 @@ class MainContent extends Component {
       "padding-top": "13px"
     };
 
+    const { employeeInfo } = this.props;
+
     return (
       <div className={"content-area"}>
         <div className={"floatLeft"}>
@@ -41,6 +45,13 @@ class MainContent extends Component {
             />
           </div>
         </div>
+        <Row>
+          <Col xs={12}>
+            {employeeInfo.map((item, index) => {
+              return <Card employeeInfo={item} key={item.id} />;
+            })}
+          </Col>
+        </Row>
       </div>
     );
   }

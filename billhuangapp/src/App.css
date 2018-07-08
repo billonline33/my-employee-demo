@@ -56,7 +56,9 @@
 .content-area {
   min-height: 600px;
   height: 100%;
-  margin: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 30px;
 }
 
 /*------------------------------------------------------------------

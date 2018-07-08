@@ -1,8 +1,6 @@
-@@ -0,0 +1,33 @@
-
 .employee-card-container {
   height: 150px;
-  border: 1px solid lightgrey;
+  border: 1px solid grey;
   max-width: 510px;
   margin-top: 30px;
   float: left;
@@ -28,6 +26,6 @@
   padding: 10px;
 }
 .card-info-container span {
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 19px;
+  font-weight: 500;
 }
