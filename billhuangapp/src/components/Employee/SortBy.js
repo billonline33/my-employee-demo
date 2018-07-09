@@ -3,6 +3,7 @@ import { SplitButton, MenuItem } from "react-bootstrap";
 import { applySortBy } from "../../reducers/sortBy";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
+import { loadEmployeeList } from "../../reducers/employeeList";
 
 class SortBy extends React.Component {
   constructor(props) {
@@ -12,10 +13,10 @@ class SortBy extends React.Component {
 
   handleSortByChange = sortByField => {
     this.props.applySortBy(sortByField);
+    this.props.loadEmployeeList(this.props.sortByField, "");
   };
 
   render() {
-
     const paddingStyle = {
       padding: "8px",
       float: "left"
@@ -54,7 +55,7 @@ class SortBy extends React.Component {
 }
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ applySortBy }, dispatch);
+  bindActionCreators({ applySortBy, loadEmployeeList }, dispatch);
 
 const mapStateToProps = state => ({
   sortByField: state.SortBy.sortByField
