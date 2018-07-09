@@ -1,22 +1,21 @@
 import React from "react";
 import { SplitButton, MenuItem } from "react-bootstrap";
+import { applySortBy } from "../../reducers/sortBy";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
 
 class SortBy extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      sortByField: "firstName"
-    };
     this.handleSortByChange = this.handleSortByChange.bind(this);
   }
 
   handleSortByChange = sortByField => {
-    this.setState({ sortByField });
-    console.log("this.state.sortByFiled=", this.state.sortByField);
+    this.props.applySortBy(sortByField);
   };
 
   render() {
-    const { sortByField } = this.state;
+    const { sortByField } = this.props.sortByField;
 
     const paddingStyle = {
       padding: "8px",
@@ -28,7 +27,7 @@ class SortBy extends React.Component {
         <div>
           <div className={"floatLeft labelStyle"}> Sort by:</div>
           <div className={"floatLeft"} style={paddingStyle}>
-            <SplitButton bsSize="large" title={`${sortByField} `}>
+            <SplitButton bsSize="large" title={sortByField}>
               <MenuItem eventKey="firstName" onSelect={this.handleSortByChange}>
                 firstName
               </MenuItem>
@@ -54,5 +53,17 @@ class SortBy extends React.Component {
     );
   }
 }
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ applySortBy }, dispatch);
+
+const mapStateToProps = state => ({
+  sortByField: state.SortBy.sortByField
+});
+
+SortBy = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SortBy);
 
 export default SortBy;
