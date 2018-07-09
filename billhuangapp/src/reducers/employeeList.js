@@ -1,5 +1,5 @@
 import axios from "axios";
-export const LOAD_EMPLOYEE_LIST = "employeeList/LOAD_EMPLOYEE_LIST";
+const LOAD_EMPLOYEE_LIST = "employeeList/LOAD_EMPLOYEE_LIST";
 
 const initialState = {
   employeeInfo: []

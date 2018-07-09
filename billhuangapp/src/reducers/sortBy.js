@@ -1,4 +1,4 @@
-export const APPLY_SORTBY = "sortBy/APPLY_SORTBY";
+const APPLY_SORTBY = "sortBy/APPLY_SORTBY";
 
 const initialState = {
   sortByField: "firstName"

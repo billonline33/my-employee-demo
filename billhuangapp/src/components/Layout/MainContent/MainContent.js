@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import SortBy from "../../Employee/SortBy";
 import Card from "../../Employee/Card";
 import { Col, Row } from "react-bootstrap";
 import { FormControl } from "react-bootstrap";
@@ -12,27 +13,22 @@ class MainContent extends Component {
     super(props);
     this.state = {
       searchValue: "",
-      companyInfo: {},
-      employeeInfo: []
+      companyInfo: {}
     };
     this.handleSearchChange = this.handleSearchChange.bind(this);
   }
 
   getEmployeeInfo() {
     this.props.loadEmployeeList(this.props.sortByField, this.state.searchValue);
-    console.log("0001", this.props.sortByField);
-    console.log("0002", this.state.searchValue);
   }
 
   handleSearchChange(e) {
     this.setState({ searchValue: e.target.value }, function() {
       this.getEmployeeInfo();
     });
-    console.log("search text=", this.state.searchValue);
   }
 
   componentDidMount() {
-    console.log("componentDidMount Run");
     this.getEmployeeInfo();
   }
 
@@ -41,15 +37,15 @@ class MainContent extends Component {
       "padding-top": "13px"
     };
 
-    console.log("the.props.sortByField=", this.props.sortByField);
-
     return (
       <div className={"content-area"}>
         <div className={"floatLeft"}>
           <h1>Our Employees</h1>
         </div>
         <div className={"floatRight"}>
-          <div className={"floatLeft"} />
+          <div className={"floatLeft"}>
+            <SortBy />
+          </div>
           <div className={"floatLeft labelStyle paddingTop"}>Search: </div>
           <div className={"floatLeft"} style={paddingTop}>
             <FormControl
@@ -62,7 +58,7 @@ class MainContent extends Component {
         </div>
         <Row>
           <Col xs={12}>
-            {this.state.employeeInfo.map((item, index) => {
+            {this.props.employeeInfo.map(item => {
               return <Card employeeInfo={item} key={item.id} />;
             })}
           </Col>
@@ -73,12 +69,12 @@ class MainContent extends Component {
 }
 
 const mapStateToProps = state => ({
-  sortByField: state.SortBy.sortByField
+  sortByField: state.SortBy.sortByField,
+  employeeInfo: state.EmployeeList.employeeInfo
 });
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = dispatch =>
   bindActionCreators({ loadEmployeeList }, dispatch);
-};
 
 MainContent = connect(
   mapStateToProps,
