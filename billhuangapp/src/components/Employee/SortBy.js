@@ -13,7 +13,7 @@ class SortBy extends React.Component {
 
   handleSortByChange = sortByField => {
     this.props.applySortBy(sortByField);
-    this.props.loadEmployeeList(this.props.sortByField, "");
+    this.props.loadEmployeeList(sortByField, "");
   };
 
   render() {
