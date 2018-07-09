@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import SortBy from "../../Employee/SortBy";
 import Card from "../../Employee/Card";
 import { Col, Row } from "react-bootstrap";
@@ -12,17 +13,18 @@ class MainContent extends Component {
     this.state = {
       searchValue: "",
       companyInfo: {},
-      employeeInfo: [],
-      sortByField: "firstName"
+      employeeInfo: []
     };
     this.handleSearchChange = this.handleSearchChange.bind(this);
     this.handleSortByChange = this.handleSortByChange.bind(this);
   }
 
   getEmployeeInfo() {
-    let apiUrl = `$/api/employees?_sort=${this.state.sortByField}&_order=asc&${
-      this.state.sortByField
+    let apiUrl = `$/api/employees?_sort=${this.props.sortByField}&_order=asc&${
+      this.props.sortByField
     }_like=${this.state.searchValue}`;
+
+    console.log("apiUrl=",apiUrl);
     axios.get(apiUrl).then(response => {
       console.log("employees Info: ", response.data);
       this.setState({ employeeInfo: response.data });
@@ -38,7 +40,7 @@ class MainContent extends Component {
 
   handleSortByChange = sortByField => {
     this.setState({ sortByField }, function() {
-      console.log("this.state.sortByFiled=", this.state.sortByField);
+      console.log("this.state.sortByFiled=", this.props.sortByField);
       this.getEmployeeInfo();
     });
   };
@@ -53,12 +55,7 @@ class MainContent extends Component {
       "padding-top": "13px"
     };
 
-    const paddingStyle = {
-      padding: "8px",
-      float: "left"
-    };
-
-    const { sortByField } = this.state;
+    console.log("the.props.sortByField=", this.props.sortByField);
 
     return (
       <div className={"content-area"}>
@@ -90,5 +87,14 @@ class MainContent extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  sortByField: state.SortBy.sortByField
+});
+
+MainContent = connect(
+  mapStateToProps,
+  null
+)(MainContent);
 
 export default MainContent;

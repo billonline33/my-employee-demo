@@ -15,7 +15,6 @@ class SortBy extends React.Component {
   };
 
   render() {
-    const { sortByField } = this.props.sortByField;
 
     const paddingStyle = {
       padding: "8px",
@@ -27,7 +26,7 @@ class SortBy extends React.Component {
         <div>
           <div className={"floatLeft labelStyle"}> Sort by:</div>
           <div className={"floatLeft"} style={paddingStyle}>
-            <SplitButton bsSize="large" title={sortByField}>
+            <SplitButton bsSize="large" title={this.props.sortByField}>
               <MenuItem eventKey="firstName" onSelect={this.handleSortByChange}>
                 firstName
               </MenuItem>
