@@ -1,19 +1,77 @@
-There are several ways to read data from sample-data.json, in the real scenario it would be read from web service. For that reason, I created a dummy json-server to simulate the web service.
+## Table of Content
 
-To run the app from your local computer, run  "npm start",josn-server will be started automatically and run on port 3001.
+- [Welcome to my React + Redux + Redux-Thunk demo](#welcome-to-my-react---redux---redux-thunk-demo)
+  * [1. Quick Start](#quick-start)
+  * [2. Main Feature](#main-feature)
+  * [3. Design diagram](#design-diagram)
+  * [4. Run the application](#run-the-application)
+    + [Run from the cloud](#run-from-the-cloud)
+      - [Restful Web Server - https://employee-list-api.herokuapp.com/](#restful-web-server---https---employee-list-apiherokuappcom-)
+      - [Front-end react app](#front-end-react-app)
 
-Redux is not really required for a simple project like this. However, for demonstrate purpose, I use redux to manage state.
-
-I have also published the site to heroku, which can be found on http://employee-list-react.herokuapp.com/
-
-I have also publised the site on AWS S3, which can be found on http://employee-list-react.s3-website-ap-southeast-2.amazonaws.com
 
 
-You can also run the web service on https://employee-list-api.herokuapp.com/
+# Welcome to my React + Redux + Redux-Thunk demo
 
-How the demo works:
+## 1. Quick Start
 
-1. Select "Sort By" will change the sort by field.
+To run the app from heroku,  Click  [Heroku deployment](http://employee-list-react.herokuapp.com/)
 
-2. depends on the current sort by field, you can enter the search value. e.g. if the current Sort By is firstName, and you enter as in search box, it returns all employees who first name contains "as".
+To run the same on  AWS S3, Click [S3 Deployment](http://employee-list-react.s3-website-ap-southeast-2.amazonaws.com/)
 
+
+## 2. Main Feature
+
+This is a sample employee list page, with sort and search features
+
+The home page will show a list of employees
+
+![home page](screenshots/home.PNG)
+
+You can click the Sort by drop-down, to sort the list.
+
+![Sort](screenshots/sort.PNG)
+
+You can also search the employees based on the current sort by field. e,g the screen below will return all employees whose last name contains "an"
+
+![enter image description here](screenshots/search.PNG)
+
+Click on one of the employee, will pop up the details of this employee.
+
+![enter image description here](screenshots/popupdetails.PNG)
+
+
+## 3. Design diagram
+
+This web page contains two part:
+
+ 1. Front-end react.js app - React + Redux + Redux-Thunk
+ 2.  Restful web server - use [json-server](https://github.com/typicode/json-server) to fake a restful web server. Data is stored in json file (in a real production environment, it would be kept in a database)
+
+See below shows the diagram.
+![enter image description here](screenshots/Diagram.png)
+
+## 4. Run the application
+
+### Run from the cloud
+
+
+#### Restful Web Server - https://employee-list-api.herokuapp.com/
+
+you can view the restful web service from browser
+
+![Restful web service](screenshots/webapihome.PNG)
+
+Click [/companyInfo](https://employee-list-api.herokuapp.com/companyInfo) will return a json object which contains company details
+
+![companyInfo](screenshots/webapicompanyinfo.PNG)
+
+Click [/employees](https://employee-list-api.herokuapp.com/employees) will return a json object which contains employee list
+![employees](screenshots/webapiemployees.PNG)
+
+
+#### Front-end react app 
+
+I have published the site to heroku, which can be found on  [http://employee-list-react.herokuapp.com/](http://employee-list-react.herokuapp.com/)
+
+I have also publised it on AWS S3, which can be found on  [http://employee-list-react.s3-website-ap-southeast-2.amazonaws.com](http://employee-list-react.s3-website-ap-southeast-2.amazonaws.com/)
